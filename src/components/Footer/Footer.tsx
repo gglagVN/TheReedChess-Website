@@ -1,10 +1,10 @@
-import styles from "./Footer.module.css";
+import styles from './Footer.module.css';
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
-        {/* Cột 1 - Thông tin CLB */}
+        {/* Cột 1 - Thông tin liên hệ */}
         <div className={styles.footerColumn}>
           <h3 className={styles.footerTitle}>CÂU LẠC BỘ THE REED CHESS</h3>
           <ul className={styles.footerList}>
@@ -12,10 +12,7 @@ const Footer = () => {
               <i className="fas fa-map-marker-alt"></i>
               <div className={styles.itemContent}>
                 <strong>Trụ sở chính:</strong>
-                <span>
-                  Số 04, Đường Phan Đình Phùng, Phường Vân Giang, TP Ninh Bình,
-                  Ninh Bình
-                </span>
+                <span>Số 04, Đường Phan Đình Phùng, Phường Vân Giang, TP Ninh Bình, Ninh Bình</span>
               </div>
             </li>
             <li className={styles.footerItem}>
@@ -29,9 +26,7 @@ const Footer = () => {
               <i className="fas fa-envelope"></i>
               <div className={styles.itemContent}>
                 <strong>Email:</strong>
-                <a href="mailto:thereedchessnb@gmail.com">
-                  thereedchessnb@gmail.com
-                </a>
+                <a href="mailto:thereedchessnb@gmail.com">thereedchessnb@gmail.com</a>
               </div>
             </li>
             <li className={styles.footerItem}>
