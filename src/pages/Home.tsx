@@ -1,19 +1,19 @@
 import styles from "./Home.module.css";
-
+import coach1Image from "../assets/images/coaches/coach1.jpg";
+import coach2Image from "../assets/images/coaches/coach2.jpg";
+import coach3Image from "../assets/images/coaches/coach3.jpg";
+import coach4Image from "../assets/images/coaches/coach4.jpg";
+import hero from "../assets/images/chess-hero.jpg";
+import club from "../assets/images/chess-club.jpg";
 const Home = () => {
-  const coachImages = [
-    "/src/assets/images/coach1.jpg",
-    "/src/assets/images/coach2.jpg",
-    "/src/assets/images/coach3.jpg",
-    "/src/assets/images/coach4.jpg",
-  ];
+  const coachImages = [coach1Image, coach2Image, coach3Image, coach4Image];
   return (
     <div className={styles.homeContainer}>
       {/* Banner Section */}
       <section className={styles.bannerSection}>
         <div className={styles.imageContainer}>
           <img
-            src="/src/assets/images/chess-hero.jpg"
+            src={hero}
             alt="The Reed Chess Club"
             className={styles.chessBanner}
           />
@@ -44,10 +44,7 @@ const Home = () => {
             </ul>
           </div>
           <div className={styles.aboutImage}>
-            <img
-              src="/src/assets/images/chess-club.jpg"
-              alt="Chess Club Activities"
-            />
+            <img src={club} alt="Chess Club Activities" />
           </div>
         </div>
       </section>
