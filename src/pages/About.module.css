@@ -1,0 +1,41 @@
+.aboutContainer {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.aboutContainer h1 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.aboutContainer p {
+  color: #555;
+  line-height: 1.6;
+}
+
+.aboutContainer h2 {
+  color: #333;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.aboutContainer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.aboutContainer ul li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.aboutContainer ul li:before {
+  content: "•";
+  color: #007bff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1.2em;
+}
