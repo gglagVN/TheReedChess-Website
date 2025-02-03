@@ -1,41 +1,163 @@
 .aboutContainer {
-  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
   font-family: Arial, sans-serif;
 }
 
-.aboutContainer h1 {
-  color: #333;
-  font-size: 2em;
-  margin-bottom: 10px;
+.aboutHeader {
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.aboutContainer p {
+.aboutHeader h1 {
+  color: #2c3e50;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.introText {
+  font-size: 1.2em;
   color: #555;
   line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.aboutContainer h2 {
-  color: #333;
-  font-size: 1.5em;
-  margin-top: 20px;
+.historySection,
+.missionSection,
+.locationSection {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
 }
 
-.aboutContainer ul {
+.historySection h2,
+.missionSection h2,
+.locationSection h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.8em;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.missionSection ul {
   list-style-type: none;
   padding: 0;
 }
 
-.aboutContainer ul li {
-  margin-bottom: 10px;
-  padding-left: 20px;
+.missionSection ul li {
+  margin-bottom: 15px;
+  padding-left: 25px;
   position: relative;
+  color: #555;
 }
 
-.aboutContainer ul li:before {
+.missionSection ul li:before {
   content: "•";
-  color: #007bff;
+  color: #3498db;
   position: absolute;
   left: 0;
-  top: 0;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.locations {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.locationItem {
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  background: #f9f9f9;
+}
+
+.locationItem h3 {
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+.locationItem p {
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .aboutHeader h1 {
+    font-size: 2em;
+  }
+
+  .introText {
+    font-size: 1.1em;
+  }
+
+  .locations {
+    grid-template-columns: 1fr;
+  }
+}
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 50px; /* Bo tròn các góc */
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.2);
+}
+
+.submitButton:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Thêm hiệu ứng loading khi đang gửi form */
+.submitButton.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Thêm animation cho icon loading */
+.loadingIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
