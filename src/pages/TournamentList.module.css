@@ -1,0 +1,111 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.pageTitle {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.tournamentGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.tournamentCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tournamentCard:hover {
+  transform: translateY(-5px);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.upcoming {
+  background: #3498db;
+}
+
+.ongoing {
+  background: #27ae60;
+}
+
+.completed {
+  background: #7f8c8d;
+}
+
+.content {
+  padding: 20px;
+}
+
+.title {
+  color: #2c3e50;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+  line-height: 1.4;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+  font-size: 0.95em;
+}
+
+.icon {
+  font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px;
+  }
+
+  .pageTitle {
+    font-size: 2em;
+  }
+
+  .tournamentGrid {
+    grid-template-columns: 1fr;
+  }
+}
