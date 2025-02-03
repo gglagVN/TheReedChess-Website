@@ -1,14 +1,21 @@
-.pageWrapper {
-  padding-top: 80px; /* Điều chỉnh theo chiều cao của navigation */
-  min-height: 100vh;
+.mainWrapper {
+  padding-top: 80px;
+  min-height: calc(100vh - 80px);
   background: #f5f7fa;
+  width: 100%;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  position: relative;
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2em;
+  color: #666;
 }
 
 .header {
@@ -16,29 +23,13 @@
   margin-bottom: 40px;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .mainImage {
   width: 100%;
   height: 400px;
   object-fit: cover;
-}
-
-.titleWrapper {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30px;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-}
-
-.titleWrapper h1 {
-  color: white;
-  font-size: 2.5em;
-  margin-bottom: 15px;
-  font-weight: 600;
 }
 
 .backButton {
@@ -63,11 +54,65 @@
   transform: translateX(-5px);
 }
 
+.adminActions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.editButton,
+.deleteButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.editButton {
+  background: rgba(52, 152, 219, 0.9);
+  color: white;
+}
+
+.deleteButton {
+  background: rgba(231, 76, 60, 0.9);
+  color: white;
+}
+
+.editButton:hover {
+  background: rgb(52, 152, 219);
+  transform: translateY(-2px);
+}
+
+.deleteButton:hover {
+  background: rgb(231, 76, 60);
+  transform: translateY(-2px);
+}
+
+.titleWrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+}
+
+.titleWrapper h1 {
+  font-size: 2.5em;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
 .status {
   display: inline-block;
   padding: 8px 16px;
   border-radius: 20px;
-  color: white;
   font-size: 0.9em;
   font-weight: 600;
 }
@@ -96,7 +141,13 @@
   background: white;
   padding: 30px;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .infoCard h2 {
@@ -114,15 +165,24 @@
 }
 
 .infoCard li {
-  margin-bottom: 15px;
-  color: #555;
   display: flex;
-  align-items: center;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
 }
 
 .infoCard li:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.icon {
+  font-size: 1.5em;
+  min-width: 30px;
+  text-align: center;
 }
 
 .schedule {
@@ -152,12 +212,42 @@
 
 .event {
   color: #2c3e50;
+  flex: 1;
+}
+
+.contactInfo {
+  display: grid;
+  gap: 20px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.contactItem div {
+  flex: 1;
+}
+
+.contactItem strong {
+  display: block;
+  margin-bottom: 5px;
+  color: #2c3e50;
+}
+
+.contactItem p {
+  margin: 0;
+  color: #666;
 }
 
 .registerSection {
   text-align: center;
-  margin-top: 40px;
-  padding: 20px;
+  margin-top: 20px;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
 
 .registerButton {
@@ -180,31 +270,60 @@
   box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
 }
 
-.registerButton:active {
-  transform: translateY(0);
+.registerButton:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
-.contactInfo {
-  display: grid;
-  gap: 15px;
+.registerNote {
+  margin-top: 15px;
+  color: #666;
+  font-size: 0.9em;
 }
 
-.contactItem {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: #555;
+.metaInfo {
+  color: #666;
+  font-size: 0.9em;
 }
 
-.contactIcon {
-  color: #3498db;
-  font-size: 1.2em;
+.metaInfo p {
+  margin: 10px 0;
 }
 
-/* Responsive Styles */
+.errorContainer {
+  text-align: center;
+  padding: 40px;
+}
+
+.errorContainer h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.errorButton {
+  background: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.errorButton:hover {
+  background: #2980b9;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
     padding: 15px;
+  }
+
+  .header {
+    border-radius: 10px;
   }
 
   .mainImage {
@@ -232,49 +351,42 @@
     min-width: auto;
   }
 
+  .adminActions {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .editButton,
+  .deleteButton {
+    padding: 8px 15px;
+    font-size: 0.9em;
+  }
+
   .registerButton {
     width: 100%;
     padding: 12px 20px;
   }
 }
 
-/* Error State */
-.errorContainer {
-  text-align: center;
-  padding: 40px 20px;
-}
+@media (max-width: 480px) {
+  .mainWrapper {
+    padding-top: 60px;
+  }
 
-.errorContainer h2 {
-  color: #2c3e50;
-  margin-bottom: 20px;
-}
+  .titleWrapper h1 {
+    font-size: 1.5em;
+  }
 
-.errorButton {
-  background: #3498db;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+  .infoCard h2 {
+    font-size: 1.3em;
+  }
 
-.errorButton:hover {
-  background: #2980b9;
-}
-.mainWrapper {
-  padding-top: 100px; /* Điều chỉnh theo chiều cao của navigation */
-  min-height: calc(
-    100vh - 100px
-  ); /* Điều chỉnh để tránh bị dính footer nếu có */
-  background: #f5f7fa;
-  width: 100%;
-  position: relative;
-}
+  .icon {
+    font-size: 1.2em;
+  }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-  position: relative;
+  .contactItem {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
